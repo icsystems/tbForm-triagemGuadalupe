@@ -126,19 +126,23 @@
 					</fieldset>
 					<fieldset id='fieldsetEscore'>
 						<legend> Escore de suspei&ccedil;ão de TB</legend>
+						<div id='divFrasesAjudaSintomas'>
+						<label for='frasesAjudaSintomas'> </label>
+							<p id='frasesAjudaSintomas' name='frasesAjudaSintomas'><b>Favor preencher os resultados de BAAR</b></p>
+						</div><br />
 						<div class="primary" id="divPesoHabitual">
 							<label for="pesoHabitual" class="required">Peso Habitual:</label>
 							<input type="text" size="5" maxlength="5" class="number required sintomas" name="pesoHabitual" id="pesoHabitual"/> Kg
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroPesoHabitual' name='divErroPesoHabitual' class='erro secondary'>
+							<p id='erroPesoHabitual' name='erroPesoHabitual'></p>
 						</div>
 						<div class="primary" id="divPesoAtual">
 							<label for="pesoAtual" class="required">Peso Atual:</label>
 							<input type="text" size="5" maxlength="5" class="number required sintomas" name="pesoAtual" id="pesoAtual"/> Kg
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroPesoAtual' name='divErroPesoAtual' class='erro secondary'>
+							<p id='erroPesoAtual' name='erroPesoAtual'></p>
 						</div>
 						<div id='divSexo' class='primary required'>
 							<label for='sexo'>Sexo:</label>
@@ -148,22 +152,22 @@
 								<option value='feminino'> Feminino  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroSexo' name='divErroSexo' class='erro secondary'>
+							<p id='erroSexo' name='divErroSexo'></p>
 						</div>
 						<div id='divDataNascimento' class='primary required'>
 							<label for='data_nascimento'> Data de Nascimento:</label>
 							<input  name="data_nascimento" id="data_nascimento" type="text" class='data required sintomas' readonly/>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroDataNascimento' name='divErroDataNascimento' class='erro secondary'>
+							<p id='erroDataNascimento' name='erroDataNascimento'></p>
 						</div>
 						<div id='divIdade' class='primary required'>
 							<label for='idade'> Idade: </label>
 							<input type="text" name="idade" id="idade" class='sintomas required' size='4' maxlength='3' readonly/>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroIdade' name='divErroIdade' class='erro secondary'>
+							<p id='erroIdade' name='erroIdade'></p>
 						</div>
 						<div id='divDorToracica' class='primary required'>
 							<label for='dorToracica'>Dor Torácica:</label>
@@ -173,8 +177,8 @@
 								<option value='sim'> Sim  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroDorToracica' name='divErroDorToracica' class='erro secondary'>
+							<p id='erroDorToracica' name='erroDorToracica'></p>
 						</div>
 						<div id='divTosse' class='primary required'>
 							<label for='tosse'>Tosse:</label>
@@ -185,8 +189,8 @@
 								<option value='mais2semanas'> Mais de 2 semanas  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroTosse' name='divErroTosse' class='erro secondary'>
+							<p id='erroTosse' name='erroTosse'></p>
 						</div>
 						<div id='divExpectoracao' class='primary required'>
 							<label for='expectoracao'>Expectoração:</label>
@@ -197,8 +201,8 @@
 								<option value='mais2semanas'> Mais de 2 semanas  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroExpectoracao' name='divErroExpectoracao' class='erro secondary'>
+							<p id='erroExpectoracao' name='erroExpectoracao'></p>
 						</div>
 						<div id='divHemoptoico' class='primary required'>
 							<label for='hemoptoico'>Hemoptise:</label>
@@ -208,8 +212,8 @@
 								<option value='nao'> N&atilde;o  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroHemoptoico' name='divErroHemoptoico' class='erro secondary'>
+							<p id='erroHemoptoico' name='erroHemoptoico'></p>
 						</div>
 						<div id='divSudorese' class='primary required'>
 							<label for='sudorese'>Sudorese Noturna:</label>
@@ -219,8 +223,8 @@
 								<option value='nao'> N&atilde;o  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroSudorese' name='divErroSudorese' class='erro secondary'>
+							<p id='erroSudorese' name='erroSudorese'></p>
 						</div>
 						<div id='divFebre' class='primary required'>
 							<label for='febre'>Febre:</label>
@@ -230,8 +234,8 @@
 								<option value='nao'> N&atilde;o  </option>
 							</select>
 						</div>
-						<div id='divErro' name='' class='erro secondary'>
-							<p id='erro' name=''></p>
+						<div id='divErroFebre' name='divErroFebre' class='erro secondary'>
+							<p id='erroFebre' name='erroFebre'></p>
 						</div>
 					</fieldset>
 					<fieldset id='fieldsetResultadoTriagem'>

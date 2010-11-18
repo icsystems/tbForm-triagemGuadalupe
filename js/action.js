@@ -67,8 +67,8 @@ $(document).ready(function(){
 		var dorToracica = $('#dorToracica').val();
 		var tosse = $('#tosse').val();
 		var expectoracao = $('#expectoracao').val();
-		var hempotise = $('#hempotise').val();
-		var sudoreseNoturna = $('#sudoreseNoturna').val();
+		var hempotise = $('#hemoptoico').val();
+		var sudoreseNoturna = $('#sudorese').val();
 		var febre = $('#febre').val();
 
 		//Emagrecimento
@@ -76,12 +76,13 @@ $(document).ready(function(){
 		var pesoHabitual = parseInt($('#pesoHabitual').val(),10);
 		var pesoAtual = parseInt($('#pesoAtual').val(),10);
 
-		if (pesoHabitual < 70)
+		if (pesoHabitual < 70){
 			if ((pesoHabitual - pesoAtual) > 3)
 				emagrecimento = true;
-		else
+		}else{
 			if ((pesoHabitual - pesoAtual) > 5)
 				emagrecimento = true;
+		}
 
 		//Count points
 		if (sexo == 'masculino')
@@ -259,7 +260,9 @@ $(document).ready(function(){
 /*----------------------------------------------------------------------------------*/
 /*------------------------------- Form logics --------------------------------------*/
 	//The sintoms and the message do not appear until result of baar exams are definied
-	$('#fieldsetEscore').hide();
+	$('.sintomas').each(function(){
+		$(this).attr('disabled',true);
+	});
 	$('#fieldsetResultadoTriagem').hide();
 
 	//Idade autocomplete
@@ -294,33 +297,49 @@ $(document).ready(function(){
 	$('#primeiroExameBaar').change(function(){
 		var resultadosPreenchidos = ($('#primeiroExameBaar').val() != '' && $('#segundoExameBaar').val() != '');
 		if (resultadosPreenchidos){
+			$('#divFrasesAjudaSintomas').hide();
 			if ( ($('#primeiroExameBaar').val() == 'positivo') && ($('#segundoExameBaar').val() == 'positivo')){
-				$('#fieldsetEscore').hide();
+				$('.sintomas').each(function(){
+					$(this).attr('disabled',true);
+				});
 				$('#fieldsetResultadoTriagem').show();
 				$('#resultadoTriagem').html('<b>Iniciar o tratamento para TB e marcar consulta com o médico em turno de TB.</b>');
 			}else{
 				$('#resultadoTriagem').cleanMessage();
-				$('#fieldsetEscore').show();
+				$('.sintomas').each(function(){
+					$(this).removeAttr('disabled');
+				});
 				$('#fieldsetResultadoTriagem').hide();
 			}
 		}else{
-			$('#fieldsetEscore').hide();
+			$('#divFrasesAjudaSintomas').show();
+			$('.sintomas').each(function(){
+				$(this).attr('disabled',true);
+			});
 		}
 	});
 	$('#segundoExameBaar').change(function(){
 		var resultadosPreenchidos = ($('#primeiroExameBaar').val() != '' && $('#segundoExameBaar').val() != '');
 		if (resultadosPreenchidos){
+			$('#divFrasesAjudaSintomas').hide();
 			if ( ($('#primeiroExameBaar').val() == 'positivo') && ($('#segundoExameBaar').val() == 'positivo')){
-				$('#fieldsetEscore').hide();
+				$('.sintomas').each(function(){
+					$(this).attr('disabled',true);
+				});
 				$('#fieldsetResultadoTriagem').show();
 				$('#resultadoTriagem').html('<b>Iniciar o tratamento para TB e marcar consulta com o médico em turno de TB.</b>');
 			}else{
 				$('#resultadoTriagem').cleanMessage();
-				$('#fieldsetEscore').show();
+				$('.sintomas').each(function(){
+					$(this).removeAttr('disabled');
+				});
 				$('#fieldsetResultadoTriagem').hide();
 			}
 		}else{
-			$('#fieldsetEscore').hide();
+			$('#divFrasesAjudaSintomas').show();
+			$('.sintomas').each(function(){
+				$(this).attr('disabled',true);
+			});
 		}
 	});
 /*----------------------------------------------------------------------------------*/
@@ -328,7 +347,7 @@ $(document).ready(function(){
 	$('#form_triagemGuadalupe').submit(function(){
 		var existEmptyField = false;
 		$('.required:input').each(function(){
-			if ($(this).val() == ''){
+			if ($(this).val() == '' && $(this).attr('disabled') != true){
 				$(this).showRequiredMessage();
 				existEmptyField = true;
 			}else{
