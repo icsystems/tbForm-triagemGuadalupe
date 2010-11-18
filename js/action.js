@@ -359,7 +359,7 @@ $(document).ready(function(){
 	});
 	$('.required').change(function(){
 		$('.required:input').each(function(){
-			if ($(this).val() != ''){
+			if ($(this).val() != '' || $(this).attr('disabled') == true){
 				$(this).cleanRequiredMessage();
 				return;
 			}
